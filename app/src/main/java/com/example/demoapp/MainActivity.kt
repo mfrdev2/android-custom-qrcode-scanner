@@ -1,6 +1,7 @@
 package com.example.demoapp
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
@@ -209,7 +210,10 @@ class MainActivity : AppCompatActivity() {
             }
             .setNegativeButton("Done") { _, _ ->
                 // Optionally finish activity or stay paused
-                finish()
+               // finish()
+                val intent = Intent(this, MemberDetailsActivity::class.java)
+                intent.putExtra("qr_code", "JohnDoe")
+                startActivity(intent)
             }
             .setCancelable(false)
             .show()
